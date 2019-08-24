@@ -13,23 +13,29 @@ def hangman(word):
 
   print("Welcome to Hangman!")
 
+  # continues the game until wrong is no longer less than the length of stages - 1
   while wrong < len(stages) - 1:
     print("/n")
 
     msg = "Guess a letter: "
-    char = input(msg)
+    guess = input(msg)
 
-    if char in rletters:
-      cind = rletters.index(char)
-      board[cind] = char
+    # checks to see if the players guess is in the word
+    # if yes, update board but if not, increment wrong
+    if guess in rletters:
+      cind = rletters.index(guess)
+      board[cind] = guess
+      # replaces correctly guessed letter with $
       rletters[cind] = "$"
     else:
       wrong += 1
     
+    # displays board
     print((" ".join(board)))
 
     e = wrong + 1
 
+    # uses e to slice up to the current stage of the game
     print("/n".join(stages[0: e]))
 
     if "_" not in board:
