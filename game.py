@@ -44,3 +44,7 @@ def hangman(word):
 
       win = True
       break
+  
+  if not win:
+    print("/n".join(stages[0: wrong]))
+    print("You lose grandpa! It was {}.".format(word))
