@@ -3,12 +3,12 @@ import random
 def hangman(word):
   wrong = 0
   stages = ["",
-            "________      ",
+            " ________     ",
             "|      |      ",
             "|      0      ",
             "|     /|\     ",
             "|     / \     ",
-            ""]
+            "|___________  "]
   rletters = list(word)
   board = ["__"] * len(word)
   win = False
@@ -50,7 +50,7 @@ def hangman(word):
       break
   
   if not win:
-    print("\n".join(stages[0: wrong]))
+    # print("\n".join(stages[0: wrong + 1]))
     print("You lose grandpa! It was {}.".format(word))
 
 words = ["pizza", "chinese", "tacos", "pistachios", "burgers", "pockets"]
