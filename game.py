@@ -2,14 +2,14 @@ import random
 
 def hangman(word):
   wrong = 0
-  stages = ["",
+  stages = ["              ",
             " ________     ",
             "|      |      ",
             "|      0      ",
             "|     /|\     ",
             "|     / \     ",
             "|___________  "]
-  rletters = list(word)
+  letters = list(word)
   board = ["__"] * len(word)
   win = False
 
@@ -26,11 +26,11 @@ def hangman(word):
 
     # checks to see if the players guess is in the word
     # if yes, update board but if not, increment wrong
-    if guess in rletters:
-      cind = rletters.index(guess)
-      board[cind] = guess
+    if guess in letters:
+      guessIndex = letters.index(guess)
+      board[guessIndex] = guess
       # replaces correctly guessed letter with $
-      rletters[cind] = "$"
+      letters[guessIndex] = "$"
     else:
       wrong += 1
     
@@ -50,7 +50,6 @@ def hangman(word):
       break
   
   if not win:
-    # print("\n".join(stages[0: wrong + 1]))
     print("You lose grandpa! It was {}.".format(word))
 
 words = ["pizza", "chinese", "tacos", "pistachios", "burgers", "pockets"]
