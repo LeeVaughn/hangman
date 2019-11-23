@@ -1,1 +1,3 @@
-A classic take on the game Hangman build with Python
+#War
+
+A take on the classic game Hangman built with Python
